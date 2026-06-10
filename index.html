@@ -11,13 +11,12 @@
 </head>
 <body>
     <h1>Simple GPA Calculator</h1>
-    <p>How to use: Enter in your letter grade, and mark if the course is weighted or unweighted.</p>
+    <p>How To Use: Enter in your letter grade in the left column, and mark if the course is an AP/Honors course in the right column.</p>
     <div class="form">
         <form>
-            
             <div class="gradeRow">
                 <div class="grade">Letter Grade</div>
-                <div class="weight">Weighted?</div>
+                <div class="weight">AP/Honors</div>
             </div>
             
             <div class="gradeRow">
@@ -61,7 +60,16 @@
         </form>
     </div>
     <div>
+        <p>Unweighted GPA: <span id="uwgpa"></span></p>
         <p>Weighted GPA: <span id="wgpa"></span></p>
+    </div>
+    <div>
+        <h4>How It Works:</h4>
+        <p>A+, A, A- = 4.0</p>
+        <p>B+, B, B- = 3.0</p>
+        <p>C+, C, C- = 2.0</p>
+        <p>D+, D, D- = 1.0</p>
+        <p>F+, F, F- = 0.0</p>
     </div>
     <script src="scripts.js"></script>
 </body>
