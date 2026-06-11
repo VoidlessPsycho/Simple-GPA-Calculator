@@ -1,16 +1,38 @@
 @import url('https://fonts.googleapis.com/css2?family=Iosevka+Charon:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&family=Playwrite+GB+J:ital,wght@0,100..400;1,100..400&display=swap');
 
+/* ---------- Page ---------- */
+
 body {
     background-image: url("img/wave.jpg");
     font-family: "Iosevka Charon", monospace;
 }
 
+header,
+footer {
+    max-width: 500px;
+    margin: auto;
+}
+
+main {
+    max-width: 500px;
+    margin: auto;
+    background-color: aquamarine;
+}
+
+/* ---------- Headings ---------- */
 
 h1 {
-    background-color: cornflowerblue;
-    width: 500px;
-    text-align: center;
+    width: 100%;
+    margin: 0 10px 10px;
     padding: 10px 0;
+
+    text-align: center;
+    background-color: cornflowerblue;
+    font-family: "Playwrite GB J", cursive;
+}
+
+h4,
+.headerRow .cell {
     font-family: "Playwrite GB J", cursive;
 }
 
@@ -18,19 +40,7 @@ footer h1 {
     font-size: medium;
 }
 
-h4 {
-    font-family: "Playwrite GB J", cursive;
-}
-
-main {
-    background-color: aquamarine;
-    margin: auto;
-    max-width: 500px;
-}
-
-.description {
-    padding: 0 15px;
-}
+/* ---------- Layout ---------- */
 
 .center {
     display: flex;
@@ -41,40 +51,55 @@ main {
 .row {
     display: flex;
     justify-content: center;
+    width:100%
 }
+
+.results {
+    max-width: 350px;
+}
+
+.description {
+    padding: 0 15px;
+}
+
+/* ---------- Table ---------- */
 
 .cell {
     display: flex;
-    border-style: solid;
-    padding: 10px;
-    width: 100px;
     justify-content: center;
     align-items: center;
+
+    width: 50%;
+    padding: 10px;
     margin: 0;
+
+    border-style: solid;
+
     background-color: antiquewhite;
 }
 
-
 .headerRow .cell {
     background-color: cadetblue;
-    font-family: "Playwrite GB J", cursive;
 }
+
+.guide {
+    flex-direction: column;
+    width: 50%;
+}
+
+.guide p {
+    margin: 5px;
+}
+
+/* ---------- GPA Calculation ---------- */
 
 #calcUW,
 #calcW {
     display: none;
 }
 
-.footer {
-    flex-direction: column;
-    width: 125px;
-}
-
-.footer p {
-    margin: 5px;
-}
-
+/* ---------- Buttons ---------- */
 
 .submit {
-    padding: 10px
+    padding: 10px;
 }

@@ -29,7 +29,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 points = 2.0;
             } else if (["D+", "D", "D-"].includes(letterGrade)) {
                 points = 1.0;
-            } else if (["F+", "F", "F-"].includes(letterGrade)) {
+            } else if (["F"].includes(letterGrade)) {
                 points = 0.0;
             }
 
@@ -41,8 +41,8 @@ document.addEventListener('DOMContentLoaded', function () {
             calcW += points.toString()
             if (i < numRows - 1) { calcW += " + "; };
         }
-        let uw = (pointsUW /= numRows).toFixed(2);
-        let w = (pointsW /= numRows).toFixed(2);
+        let uw = (pointsUW /= numRows).toFixed(3);
+        let w = (pointsW /= numRows).toFixed(3);
         calcUW += " }{ " + numRows + "} =  ";
         calcW += " }{ " + numRows + "} =  ";
         document.getElementById("wgpa").innerHTML = " " + w;
@@ -70,9 +70,7 @@ function toggleShowCalc() {
 
 function addRow() {
     let courseContainer = document.getElementById("courseContainer");
-    let row = document.createElement("div");
-    row.setAttribute("class", "row");
-    row.innerHTML = '<div class="cell"><input type="text" class="gradeInput" size="5" required></div> <div class="cell"><input type="checkbox" class="weightedInput"></div>'
+    let row = courseContainer.lastElementChild.cloneNode(true);
     courseContainer.appendChild(row);
 }
 
