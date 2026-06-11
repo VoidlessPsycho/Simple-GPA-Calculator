@@ -10,6 +10,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="styles.css">
     <link rel="icon" href="img/wave.jpg">
+    <script defer src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-mml-chtml.js"></script>
 </head>
 
 <body>
@@ -26,39 +27,30 @@
                     <div class="cell">AP/Honors</div>
                 </div>
 
-                <div class="row">
-                    <div class="cell"><input type="text" id="grade1" name="grade1" size="5" required></div>
-                    <div class="cell"><input type="checkbox" id="w1" name="w1" ></div>
-                </div>
+                <div id="courseContainer">
+                    <div class="row">
+                        <div class="cell"><input type="text" class="gradeInput" size="5" required></div>
+                        <div class="cell"><input type="checkbox" class="weightedInput"></div>
+                    </div>
 
-                <div class="row">
-                    <div class="cell"><input type="text" id="grade2" name="grade2" size="5" required></div>
-                    <div class="cell"><input type="checkbox" id="w2" name="w2" ></div>
-                </div>
+                    <div class="row">
+                        <div class="cell"><input type="text" class="gradeInput" size="5" required></div>
+                        <div class="cell"><input type="checkbox" class="weightedInput"></div>
+                    </div>
 
-                <div class="row">
-                    <div class="cell"><input type="text" id="grade3" name="grade3" size="5" required></div>
-                    <div class="cell"><input type="checkbox" id="w3" name="w3" ></div>
-                </div>
+                    <div class="row">
+                        <div class="cell"><input type="text" class="gradeInput" size="5" required></div>
+                        <div class="cell"><input type="checkbox" class="weightedInput"></div>
+                    </div>
 
-                <div class="row">
-                    <div class="cell"><input type="text" id="grade4" name="grade4" size="5" required></div>
-                    <div class="cell"><input type="checkbox" id="w4" name="w4" ></div>
+                    <div class="row">
+                        <div class="cell"><input type="text" class="gradeInput" size="5" required></div>
+                        <div class="cell"><input type="checkbox" class="weightedInput"></div>
+                    </div>
                 </div>
-
-                <div class="row">
-                    <div class="cell"><input type="text" id="grade5" name="grade5" size="5" required></div>
-                    <div class="cell"><input type="checkbox" id="w5" name="w5" ></div>
-                </div>
-
-                <div class="row">
-                    <div class="cell"><input type="text" id="grade6" name="grade6" size="5" required></div>
-                    <div class="cell"><input type="checkbox" id="w6" name="w6" ></div>
-                </div>
-
-                <div class="row">
-                    <div class="cell"><input type="text" id="grade7" name="grade7" size="5" required></div>
-                    <div class="cell"><input type="checkbox" id="w7" name="w7" > </div>
+                <div id="addRemove" style="display:flex; justify-content: center;">
+                    <button type="button" style="margin:10px" onclick="addRow()">+</button>
+                    <button type="button" style="margin:10px" onclick="removeRow()">–</button>
                 </div>
 
                 <div class="row submit">
@@ -67,8 +59,8 @@
             </form>
         </div>
         <div class="center">
-            <p>Unweighted GPA: <span id="calcUW"></span><span id="uwgpa"></span></p>
-            <p>Weighted GPA: <span id="calcW"></span><span id="wgpa"></span></p>
+            <p>Unweighted GPA: <span id="calcUW"> </span><span id="uwgpa"></span></p>
+            <p>Weighted GPA: <span id="calcW"> </span><span id="wgpa"></span></p>
             <button type="button" onclick="toggleShowCalc()" id="showCalc">Show Calculations</button>
         </div>
         <div class="center">
@@ -93,11 +85,13 @@
                     <p>F+, F, F- = 1.0</p>
                 </div>
             </div>
-            <p class="description">The points for each class are added up and divided by 7, the number of classes, to
+            <p class="description">The points for each class are added up and divided by the number of classes to
                 get the GPA (Grade Point Average). </p>
         </div>
     </main>
-    <footer></footer>
+    <footer class="center">
+        <h1>Made by Voidless</h1>
+    </footer>
     <script src="scripts.js"></script>
 </body>
 

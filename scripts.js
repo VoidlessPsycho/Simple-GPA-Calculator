@@ -2,13 +2,23 @@ document.addEventListener('DOMContentLoaded', function () {
     const form = document.querySelector("form");
     form.addEventListener('submit', function (event) {
         event.preventDefault();
+        let courseContainer = document.getElementById("courseContainer");
         let pointsUW = 0;
         let pointsW = 0;
-        let calcUW = "( ";
-        let calcW = "( ";
-        for (let i = 1; i <= 7; i++) {
-            let letterGrade = document.getElementById(`grade${i}`).value.toUpperCase();
-            let weightedNot = document.getElementById(`w${i}`).checked;
+        let calcUW = "\\frac{ ";
+        let calcW = "\\frac{ ";
+        let grades = document.querySelectorAll(".gradeInput");
+        let weights = document.querySelectorAll(".weightedInput");
+        let numRows = grades.length;
+
+        for (let i = 0; i < numRows; i++) {
+            console.log(i);
+            console.log(grades.length);
+            console.log(weights.length);
+            console.log(grades[i]);
+            console.log(weights[i]);
+            let letterGrade = grades[i].value.toUpperCase();
+            let weightedNot = weights[i].checked;
 
             let points;
             if (["A+", "A", "A-"].includes(letterGrade)) {
@@ -25,20 +35,21 @@ document.addEventListener('DOMContentLoaded', function () {
 
             pointsUW += points;
             calcUW += points.toString();
-            if (i < 7) { calcUW += " + "; };
+            if (i < numRows - 1) { calcUW += " + "; };
             if (weightedNot) { points += 1.0 };
             pointsW += points;
             calcW += points.toString()
-            if (i < 7) { calcW += " + "; };
+            if (i < numRows - 1) { calcW += " + "; };
         }
-        let uw = (pointsUW /= 7).toFixed(2);
-        let w = (pointsW /= 7).toFixed(2);
-        calcUW += ") ÷ 7 = ";
-        calcW += ") ÷ 7 = ";
-        document.getElementById("wgpa").innerHTML = w;
-        document.getElementById("uwgpa").innerHTML = uw;
-        document.getElementById("calcUW").innerHTML = calcUW;
-        document.getElementById("calcW").innerHTML = calcW;
+        let uw = (pointsUW /= numRows).toFixed(2);
+        let w = (pointsW /= numRows).toFixed(2);
+        calcUW += " }{ " + numRows + "} =  ";
+        calcW += " }{ " + numRows + "} =  ";
+        document.getElementById("wgpa").innerHTML = " " + w;
+        document.getElementById("uwgpa").innerHTML = " " + uw;
+        document.getElementById("calcUW").innerHTML = "\\(" + calcUW + "\\)";;
+        document.getElementById("calcW").innerHTML = "\\(" + calcW + "\\)";;
+        MathJax.typeset()
     });
 });
 
@@ -56,3 +67,18 @@ function toggleShowCalc() {
         document.getElementById("showCalc").innerText = "Show Calculations";
     }
 };
+
+function addRow() {
+    let courseContainer = document.getElementById("courseContainer");
+    let row = document.createElement("div");
+    row.setAttribute("class", "row");
+    row.innerHTML = '<div class="cell"><input type="text" class="gradeInput" size="5" required></div> <div class="cell"><input type="checkbox" class="weightedInput"></div>'
+    courseContainer.appendChild(row);
+}
+
+function removeRow() {
+    if (courseContainer.childElementCount > 3) {
+        let courseContainer = document.getElementById("courseContainer");
+        courseContainer.removeChild(courseContainer.lastElementChild);
+    }
+}
