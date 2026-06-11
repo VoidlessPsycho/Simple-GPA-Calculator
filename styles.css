@@ -54,6 +54,9 @@ main {
     font-family: "Playwrite GB J", cursive;
 }
 
+#calcUW, #calcW {
+    display: none;
+}
 
 .footer {
     flex-direction: column;

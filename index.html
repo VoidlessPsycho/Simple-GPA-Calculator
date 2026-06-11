@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <title>Simple GPA Calculator</title>
     <meta charset="UTF-8">
@@ -10,89 +11,94 @@
     <link rel="stylesheet" href="styles.css">
     <link rel="icon" href="img/wave.jpg">
 </head>
+
 <body>
     <header class="center">
         <h1>Simple GPA Calculator</h1>
     </header>
     <main>
-    <div class="center">
-        <p class="description">How To Use: Enter in your letter grade in the left column, and mark if the course is an AP/Honors course in the right column.</p>
-        <form>
+        <div class="center">
+            <p class="description">How To Use: Enter in your letter grade in the left column, and mark if the course is
+                an AP/Honors course in the right column.</p>
+            <form>
+                <div class="row headerRow">
+                    <div class="cell">Letter Grade</div>
+                    <div class="cell">AP/Honors</div>
+                </div>
+
+                <div class="row">
+                    <div class="cell"><input type="text" id="grade1" name="grade1" size="5" required></div>
+                    <div class="cell"><input type="checkbox" id="w1" name="w1" ></div>
+                </div>
+
+                <div class="row">
+                    <div class="cell"><input type="text" id="grade2" name="grade2" size="5" required></div>
+                    <div class="cell"><input type="checkbox" id="w2" name="w2" ></div>
+                </div>
+
+                <div class="row">
+                    <div class="cell"><input type="text" id="grade3" name="grade3" size="5" required></div>
+                    <div class="cell"><input type="checkbox" id="w3" name="w3" ></div>
+                </div>
+
+                <div class="row">
+                    <div class="cell"><input type="text" id="grade4" name="grade4" size="5" required></div>
+                    <div class="cell"><input type="checkbox" id="w4" name="w4" ></div>
+                </div>
+
+                <div class="row">
+                    <div class="cell"><input type="text" id="grade5" name="grade5" size="5" required></div>
+                    <div class="cell"><input type="checkbox" id="w5" name="w5" ></div>
+                </div>
+
+                <div class="row">
+                    <div class="cell"><input type="text" id="grade6" name="grade6" size="5" required></div>
+                    <div class="cell"><input type="checkbox" id="w6" name="w6" ></div>
+                </div>
+
+                <div class="row">
+                    <div class="cell"><input type="text" id="grade7" name="grade7" size="5" required></div>
+                    <div class="cell"><input type="checkbox" id="w7" name="w7" > </div>
+                </div>
+
+                <div class="row submit">
+                    <input type="submit">
+                </div>
+            </form>
+        </div>
+        <div class="center">
+            <p>Unweighted GPA: <span id="calcUW"></span><span id="uwgpa"></span></p>
+            <p>Weighted GPA: <span id="calcW"></span><span id="wgpa"></span></p>
+            <button type="button" onclick="toggleShowCalc()" id="showCalc">Show Calculations</button>
+        </div>
+        <div class="center">
+            <h4>How It Works:</h4>
             <div class="row headerRow">
-                <div class="cell">Letter Grade</div>
-                <div class="cell">AP/Honors</div>
+                <p class="cell footer">Unweighted</p>
+                <p class="cell footer">Weighted</p>
             </div>
-            
             <div class="row">
-                <div class="cell"><input type="text" id="grade1" name="grade1" size="5"></div>
-                <div class="cell"><input type="checkbox" id="w1" name="w1"></div>
+                <div class="cell footer">
+                    <p>A+, A, A- = 4.0</p>
+                    <p>B+, B, B- = 3.0</p>
+                    <p>C+, C, C- = 2.0</p>
+                    <p>D+, D, D- = 1.0</p>
+                    <p>F+, F, F- = 0.0</p>
+                </div>
+                <div class="cell footer">
+                    <p>A+, A, A- = 5.0</p>
+                    <p>B+, B, B- = 4.0</p>
+                    <p>C+, C, C- = 3.0</p>
+                    <p>D+, D, D- = 2.0</p>
+                    <p>F+, F, F- = 1.0</p>
+                </div>
             </div>
-
-            <div class="row">
-                <div class="cell"><input type="text" id="grade2" name="grade2" size="5"></div>
-                <div class="cell"><input type="checkbox" id="w2" name="w2"></div>
-            </div>
-
-            <div class="row">
-                <div class="cell"><input type="text" id="grade3" name="grade3" size="5"></div>
-                <div class="cell"><input type="checkbox" id="w3" name="w3"></div>
-            </div>
-
-            <div class="row">
-                <div class="cell"><input type="text" id="grade4" name="grade4" size="5"></div>
-                <div class="cell"><input type="checkbox" id="w4" name="w4"></div>
-            </div>
-
-            <div class="row">
-                <div class="cell"><input type="text" id="grade5" name="grade5" size="5"></div>
-                <div class="cell"><input type="checkbox" id="w5" name="w5"></div>
-            </div>
-
-            <div class="row">
-                <div class="cell"><input type="text" id="grade6" name="grade6" size="5"></div>
-                <div class="cell"><input type="checkbox" id="w6" name="w6"></div>
-            </div>
-
-            <div class="row">
-                <div class="cell"><input type="text" id="grade7" name="grade7" size="5"></div>
-                <div class="cell"><input type="checkbox" id="w7" name="w7">  </div>
-            </div>
-
-            <div class="row submit">
-                <input type="submit">  
-            </div>
-        </form>
-    </div>
-    <div class="center">
-        <p>Unweighted GPA: <span id="calcUW"></span><span id="uwgpa"></span></p>
-        <p>Weighted GPA: <span id="calcW"></span><span id="wgpa"></span></p>
-    </div>
-    <div class="center">
-        <h4>How It Works:</h4>
-        <div class="row headerRow">
-            <p class="cell footer">Unweighted</p>
-            <p class="cell footer">Weighted</p>
+            <p class="description">The points for each class are added up and divided by 7, the number of classes, to
+                get the GPA (Grade Point Average). </p>
         </div>
-        <div class="row">
-            <div class="cell footer">
-                <p>A+, A, A- = 4.0</p>
-                <p>B+, B, B- = 3.0</p>
-                <p>C+, C, C- = 2.0</p>
-                <p>D+, D, D- = 1.0</p>
-                <p>F+, F, F- = 0.0</p>
-            </div>
-            <div class="cell footer">
-                <p>A+, A, A- = 5.0</p>
-                <p>B+, B, B- = 4.0</p>
-                <p>C+, C, C- = 3.0</p>
-                <p>D+, D, D- = 2.0</p>
-                <p>F+, F, F- = 1.0</p>
-            </div>
-        </div>
-        <p class="description">The points for each class are added up and divided by 7, the number of classes, to get the GPA (Grade Point Average). </p>
-    </div>
     </main>
     <footer></footer>
     <script src="scripts.js"></script>
 </body>
+
 </html>

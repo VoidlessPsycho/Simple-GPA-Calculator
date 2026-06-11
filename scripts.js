@@ -41,3 +41,18 @@ document.addEventListener('DOMContentLoaded', function () {
         document.getElementById("calcW").innerHTML = calcW;
     });
 });
+
+function toggleShowCalc() {
+    const calcUW = document.getElementById("calcUW");
+    const calcW = document.getElementById("calcW");
+
+    if (getComputedStyle(calcUW).display === "none") {
+        calcUW.style.display = "inline";
+        calcW.style.display = "inline";
+        document.getElementById("showCalc").innerText = "Hide Calculations";
+    } else {
+        calcUW.style.display = "none";
+        calcW.style.display = "none";
+        document.getElementById("showCalc").innerText = "Show Calculations";
+    }
+};
