@@ -1,3 +1,8 @@
+// Complex Grade Toggle
+let complexGrade = false;
+// False = normal
+// True = complex
+
 document.addEventListener('DOMContentLoaded', function () {
     const form = document.querySelector("form");
     form.addEventListener('submit', function (event) {
@@ -14,6 +19,7 @@ document.addEventListener('DOMContentLoaded', function () {
         for (let i = 0; i < numRows; i++) {
             let weightedNot = weights[i].checked;
             let points;
+
             if (gradeType == true) {
                 let letterGrade = grades[i].value.toUpperCase();
 
@@ -169,4 +175,9 @@ function createNumLetterSelect(opt) {
         select.className = "gradeInput";
     }
     return select;
+}
+
+// Toggle Simple/Complex Grade Scale
+function toggleSimpleComplex() {
+
 }
