@@ -23,7 +23,7 @@
                 an AP/Honors course in the right column.</p>
             <form>
                 <div class="row headerRow">
-                    <div class="cell">Letter Grade</div>
+                    <div class="cell">Grades</div>
                     <div class="cell">AP/Honors</div>
                 </div>
 
@@ -168,9 +168,11 @@
                         <div class="cell"><input type="checkbox" class="weightedInput"></div>
                     </div>
                 </div>
-                <div id="addRemove" style="display:flex; justify-content: center;">
+                <div id="settings" style="display:flex; justify-content: center;">
                     <button type="button" style="margin:10px" onclick="addRow()">+</button>
                     <button type="button" style="margin:10px" onclick="removeRow()">&ndash;</button>
+                    <button type="button" onclick="toggleLetterNumber()" id="letterNumber" style="margin:10px"> Toggle
+                        Letter/Number Grade</button>
                 </div>
 
                 <div class="row submit">
@@ -179,12 +181,21 @@
             </form>
         </div>
         <div class="center results" style="border-style:solid; width: 400px; margin:auto">
+            <div
+                style="display:flex; justify-content: center; margin:0; width:100%; text-align:center; background-color: var(--cell-head-bg-color);padding: 0;">
+                <img src="" height="55" class="resultImg">
+                <p style="display:inline; text-align: center; padding: 0 10px;">Results</p>
+                <img src="" height="55" class="resultImg">
+            </div>
             <p>Unweighted GPA: <span id="calcUW"> </span><span id="uwgpa"></span></p>
             <p>Weighted GPA: <span id="calcW"> </span><span id="wgpa"></span></p>
-            <button type="button" onclick="toggleShowCalc()" id="showCalc">Show Calculations</button>
+            <button type="button" onclick="toggleShowCalc()" id="showCalc" style="margin-bottom: 10px;">Show
+                Calculations</button>
         </div>
-        <div class="center results" style="width:400px; margin:auto">
-            <h4>How It Works:</h4>
+        <br>
+        <hr size="5px" color="6495ED">
+        <div class="center" style="width:350px; margin:auto">
+            <h2>How It Works:</h2>
             <div class="row headerRow">
                 <p class="cell guide" style="text-align: center;"> Unweighted (Normal)</p>
                 <p class="cell guide" style="text-align: center;">Weighted (AP/Honors)</p>
@@ -216,3 +227,4 @@
 </body>
 
 </html>
+
