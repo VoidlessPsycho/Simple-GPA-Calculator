@@ -130,10 +130,12 @@ function toggleLetterNumber() {
     if (gradeType) {
         for (let i = 0; i < fields.length; i++) {
             fields[i].replaceWith(createNumLetterSelect(2));
+            document.getElementById("gradeTypeHead").innerText = "Number ";
         }
     } else {
         for (let i = 0; i < fields.length; i++) {
             fields[i].replaceWith(createNumLetterSelect(1));
+            document.getElementById("gradeTypeHead").innerText = "Letter ";
         }
     }
     gradeType = !gradeType;

@@ -19,12 +19,18 @@
     </header>
     <main>
         <div class="center">
-            <p class="description">How To Use: Enter in your letter grade in the left column, and mark if the course is
-                an AP/Honors course in the right column.</p>
+            <div class="description">
+                <h2 class="center">How To Use:</h2>
+                <p style="text-align: center;">Enter in your grade in the left column, and mark if the course is
+                    an AP/Honors course in the right column.</p>
+                <p style="text-align: center;">You can add/remove classes or toggle between entering letter grades or
+                    number grades below.</p>
+                <p style="text-align: center;">Click submit to automatically calculate your GPA.</p>
+            </div>
             <form>
                 <div class="row headerRow">
-                    <div class="cell">Grades</div>
-                    <div class="cell">AP/Honors</div>
+                    <div class="cell" style="font-size:15px"><span id="gradeTypeHead">Letter</span>&nbsp;Grades</div>
+                    <div class="cell" style="font-size:15px">AP/Honors</div>
                 </div>
 
                 <div id="courseContainer">
@@ -172,7 +178,7 @@
                     <button type="button" style="margin:10px" onclick="addRow()">+</button>
                     <button type="button" style="margin:10px" onclick="removeRow()">&ndash;</button>
                     <button type="button" onclick="toggleLetterNumber()" id="letterNumber" style="margin:10px"> Toggle
-                        Letter/Number Grade</button>
+                        <span>Number</span> Grades</button>
                 </div>
 
                 <div class="row submit">
@@ -180,44 +186,80 @@
                 </div>
             </form>
         </div>
-        <div class="center results" style="border-style:solid; width: 400px; margin:auto">
-            <div
-                style="display:flex; justify-content: center; margin:0; width:100%; text-align:center; background-color: var(--cell-head-bg-color);padding: 0;">
-                <img src="" height="55" class="resultImg">
-                <p style="display:inline; text-align: center; padding: 0 10px;">Results</p>
-                <img src="" height="55" class="resultImg">
-            </div>
-            <p>Unweighted GPA: <span id="calcUW"> </span><span id="uwgpa"></span></p>
-            <p>Weighted GPA: <span id="calcW"> </span><span id="wgpa"></span></p>
-            <button type="button" onclick="toggleShowCalc()" id="showCalc" style="margin-bottom: 10px;">Show
-                Calculations</button>
-        </div>
+        <table style="margin:auto; width:400px">
+            <tr style="height:55px;">
+                <th>
+                    <div style="display:flex; justify-content: center; align-items: center;">
+                        <img src="" height="55" class="resultImg">
+                        <p style="display:inline; padding:0 25px; text-align: center;">Results</p>
+                        <img src="" height="55" class="resultImg">
+                    </div>
+                </th>
+            </tr>
+            <tr style="height:55px;">
+                <td>Unweighted GPA: <span id="calcUW"></span><span id="uwgpa"></span></td>
+            </tr>
+            <tr style="height:55px;">
+                <td>Weighted GPA: <span id="calcW"></span><span id="wgpa"></span></td>
+            </tr>
+            <tr>
+                <td style="border: none; background:none;">
+                    <button type="button" onclick="toggleShowCalc()" id="showCalc">
+                        Show Calculations
+                    </button>
+                </td>
+            </tr>
+        </table>
         <br>
         <hr size="5px" color="6495ED">
-        <div class="center" style="width:350px; margin:auto">
+
+        <div class="center" style="width:400px; margin:auto">
             <h2>How It Works:</h2>
-            <div class="row headerRow">
-                <p class="cell guide" style="text-align: center;"> Unweighted (Normal)</p>
-                <p class="cell guide" style="text-align: center;">Weighted (AP/Honors)</p>
-            </div>
-            <div class="row">
-                <div class="cell guide">
-                    <p>A+, A, A- = 4.0</p>
-                    <p>B+, B, B- = 3.0</p>
-                    <p>C+, C, C- = 2.0</p>
-                    <p>D+, D, D- = 1.0</p>
-                    <p>F = 0.0</p>
-                </div>
-                <div class="cell guide">
-                    <p>A+, A, A- = 5.0</p>
-                    <p>B+, B, B- = 4.0</p>
-                    <p>C+, C, C- = 3.0</p>
-                    <p>D+, D, D- = 2.0</p>
-                    <p>F = 1.0</p>
-                </div>
-            </div>
-            <p class="description">The points for each class are added up and divided by the number of classes to
-                get the GPA (Grade Point Average). </p>
+            <table style="border-collapse: collapse; border-spacing: 0;">
+                <tr>
+                    <th>Letter Grade</th>
+                    <th>Number Grade</th>
+                    <th>Unweighted Points</th>
+                    <th>Weighted Points</th>
+                </tr>
+                <tr>
+                    <td>A+/A/A-</td>
+                    <td>90-100+</td>
+                    <td>4.0</td>
+                    <td>5.0</td>
+                </tr>
+                <tr>
+                    <td>B+/B/B-</td>
+                    <td>80-89</td>
+                    <td>3.0</td>
+                    <td>4.0</td>
+                </tr>
+                <tr>
+                    <td>C+/C/C-</td>
+                    <td>70-79</td>
+                    <td>2.0</td>
+                    <td>3.0</td>
+                </tr>
+                <tr>
+                    <td>D+/D/D-</td>
+                    <td>60-69</td>
+                    <td>1.0</td>
+                    <td>2.0</td>
+                </tr>
+                <tr>
+                    <td>F</td>
+                    <td>0-59</td>
+                    <td>0.0</td>
+                    <td>1.0</td>
+                </tr>
+            </table>
+            <ol>
+                <li>The letter/number grade is converted to points on the 4.0 or 5.0 scale.</li>
+                <li>The points for each class are added up.</li>
+                <li>The sum of points is divided by the number of classes to determine the GPA (Grade Point Average).
+                </li>
+            </ol>
+            <br>
         </div>
     </main>
     <footer class="center">
@@ -227,4 +269,3 @@
 </body>
 
 </html>
-

@@ -3,7 +3,7 @@
 /* ------- Variables -------- */
 :root {
     --cell-bg-color: antiquewhite;
-    --cell-head-bg-color: cadetblue;
+    --cell-head-bg-color: rgb(108, 181, 184);
     --header-color: cornflowerblue;
 }
 
@@ -16,12 +16,12 @@ body {
 
 header,
 footer {
-    max-width: 500px;
+    max-width: 600px;
     margin: auto;
 }
 
 main {
-    max-width: 500px;
+    max-width: 600px;
     margin: auto;
     background-color: aquamarine;
 }
@@ -38,8 +38,7 @@ h1 {
     font-family: "Playwrite GB J", cursive;
 }
 
-h2,
-.headerRow .cell {
+h2 {
     font-family: "Playwrite GB J", cursive;
 }
 
@@ -68,7 +67,11 @@ footer h1 {
 }
 
 .description {
-    padding: 0 15px;
+    margin: 5px 25px 25px 25px;
+}
+
+p {
+    margin: 0;
 }
 
 /* ---------- Table ---------- */
@@ -89,6 +92,7 @@ footer h1 {
 
 .headerRow .cell {
     background-color: var(--cell-head-bg-color);
+    font-weight: bold;
 }
 
 .guide {
@@ -101,12 +105,28 @@ footer h1 {
 }
 
 input.gradeInput {
-    width:100px;
+    width: 100px;
 }
+
 .gradeInput {
-    height:20px;
+    height: 20px;
     box-sizing: border-box;
 
+}
+
+th,
+td {
+    text-align: center;
+    border-style: solid;
+
+}
+
+th {
+    background-color: var(--cell-head-bg-color);
+}
+
+td {
+    background-color: var(--cell-bg-color);
 }
 
 /* ---------- GPA Calculation ---------- */
@@ -125,7 +145,7 @@ input.gradeInput {
 
 input[type="checkbox"] {
     width: 20px;
-    height:20px;
+    height: 20px;
     margin: 0;
 
 }
