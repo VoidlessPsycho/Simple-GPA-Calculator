@@ -20,33 +20,43 @@ document.addEventListener('DOMContentLoaded', function () {
             let weightedNot = weights[i].checked;
             let points;
 
-            if (gradeType == true) {
-                let letterGrade = grades[i].value.toUpperCase();
+            if (complexGrade == false) {
+                if (gradeType == true) {
+                    let letterGrade = grades[i].value.toUpperCase();
 
-                if (["A+", "A", "A-"].includes(letterGrade)) {
-                    points = 4.0;
-                } else if (["B+", "B", "B-"].includes(letterGrade)) {
-                    points = 3.0;
-                } else if (["C+", "C", "C-"].includes(letterGrade)) {
-                    points = 2.0;
-                } else if (["D+", "D", "D-"].includes(letterGrade)) {
-                    points = 1.0;
-                } else if (["F"].includes(letterGrade)) {
-                    points = 0.0;
+                    if (["A+", "A", "A-"].includes(letterGrade)) {
+                        points = 4.0;
+                    } else if (["B+", "B", "B-"].includes(letterGrade)) {
+                        points = 3.0;
+                    } else if (["C+", "C", "C-"].includes(letterGrade)) {
+                        points = 2.0;
+                    } else if (["D+", "D", "D-"].includes(letterGrade)) {
+                        points = 1.0;
+                    } else if (["F"].includes(letterGrade)) {
+                        points = 0.0;
+                    }
+                } else if (gradeType == false) {
+                    let numberGrade = grades[i].value;
+
+                    if (numberGrade >= 90.0) {
+                        points = 4.0;
+                    } else if (numberGrade >= 80.0) {
+                        points = 3.0;
+                    } else if (numberGrade >= 70.0) {
+                        points = 2.0;
+                    } else if (numberGrade >= 60.0) {
+                        points = 1.0;
+                    } else if (numberGrade < 60.0) {
+                        points = 0.0;
+                    }
                 }
-            } else if (gradeType == false) {
-                let numberGrade = grades[i].value;
-
-                if (numberGrade >= 90.0) {
-                    points = 4.0;
-                } else if (numberGrade >= 80.0) {
-                    points = 3.0;
-                } else if (numberGrade >= 70.0) {
-                    points = 2.0;
-                } else if (numberGrade >= 60.0) {
-                    points = 1.0;
-                } else if (numberGrade < 60.0) {
-                    points = 0.0;
+            } else if (complexGrade == true) {
+                if (gradeType == true) {
+                    let letterGrade = grades[i].value.toUpperCase();
+                    points = complexLetterGradePts[letterGrade];
+                } else if (gradeType == false) {
+                    let numberGrade = grades[i].value;
+                    points = complexNumberGradePts(numberGrade);
                 }
             }
 
@@ -69,6 +79,7 @@ document.addEventListener('DOMContentLoaded', function () {
         MathJax.typeset()
 
         showFaces(w);
+        document.getElementById("results").scrollIntoView({ behavior: "smooth" });
     });
 });
 
@@ -179,5 +190,47 @@ function createNumLetterSelect(opt) {
 
 // Toggle Simple/Complex Grade Scale
 function toggleSimpleComplex() {
+    if (complexGrade == false) {
+        document.getElementById("simpleGradeTable").style.display = "none";
+        document.getElementById("complexGradeTable").style.display = "block";
+        document.getElementById("toggleSimpleComplexLabel").innerText = "Simple";
+    } else if (complexGrade == true) {
+        document.getElementById("complexGradeTable").style.display = "none";
+        document.getElementById("simpleGradeTable").style.display = "block";
+        document.getElementById("toggleSimpleComplexLabel").innerText = "Complex";
+    }
 
+    complexGrade = !complexGrade
+}
+
+// Complex Grade Scale Calculation
+const complexLetterGradePts = {
+    'A+': 4.0,
+    'A': 4.0,
+    'A-': 3.7,
+    'B+': 3.3,
+    'B': 3.0,
+    'B-': 2.7,
+    'C+': 2.3,
+    'C': 2.0,
+    'C-': 1.7,
+    'D+': 1.3,
+    'D': 1.0,
+    'D-': 0.7,
+    'F': 0.0
+}
+
+function complexNumberGradePts(grade) {
+    if (grade >= 93) { return 4.0 }
+    if (grade >= 90) { return 3.7 }
+    if (grade >= 87) { return 3.3 }
+    if (grade >= 83) { return 3.0 }
+    if (grade >= 80) { return 2.7 }
+    if (grade >= 77) { return 2.3 }
+    if (grade >= 73) { return 2.0 }
+    if (grade >= 70) { return 1.7 }
+    if (grade >= 67) { return 1.3 }
+    if (grade >= 63) { return 1.0 }
+    if (grade >= 60) { return 0.7 }
+    return 0.0
 }
