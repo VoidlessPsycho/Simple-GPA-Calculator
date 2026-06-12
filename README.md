@@ -34,6 +34,7 @@ A web based GPA Calculator with support for letter grades, number grades, simple
 - JavaScript
     - MathJax
 - GitHub Pages (Hosting)
+- ChatGPT (Planning + Organization only)
 
 ## Motivation
 I built this project because I needed a simple GPA calculator that worked for the system my school uses. Along the way, I learned a lot about HTML, CSS, and JS and learned skills to make cooler projects in the future. 
