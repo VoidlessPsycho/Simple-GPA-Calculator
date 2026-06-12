@@ -1,24 +1,41 @@
 # Voidless's Simple GPA Calculator
 
-This Simple GPA Calculator allows you to calculate your unweighted and weighted GPA with a clean UI and design.
+A web based GPA Calculator with support for letter grades, number grades, simple and complex grading scales, and weighted courses.
 
-<img src="img/emptySS.png" alt="Website Screenshot" width="500"/>
+<img src="img/mainSS.png" alt="Main Calculator Screenshot" width=750/>
+<img src="img/resultsSS.png" alt="Results Screenshot"width=750/>
 
-I decided to make this project to put my HTML, CSS, and JS skills to use. I wanted a way to calculate my GPA without figuring out how existing calculators worked, so I made one that works for my needs and my school's grading system.
+## Features
+- Calculate **Unweighted GPA** and **Weighted GPA**
+- Enter **Letter Grades** or **Number Grades**
+- Use **Simple** or **Complex** Grading Scale
+- Add or Remove Courses
+- See Calculation used to find GPA
 
 ## How to Use
-Enter your letter grades in the left column, and mark if the courses are an AP/Honors course in the right column. 
-Use the +/- buttons to add/remove rows for courses. Click submit to get your GPA. 
-If you want to see the calculations, click the button.
-
-<img src="img/howToUse.png" alt="Screenshot of Usable Area" width="350"/>
-
-## Tech Stack
-The website uses HTML and CSS for the GUI, and JavaScript to add dynamic elements and calculations.
+1. Toggle between entering **Letter Grades** or **Number Grades**.
+2. Toggle between using a **Simple** or **Complex** Grading scale.
+3. Enter a grade for each course.
+4. Select **AP/Honors** for each weighted course.
+5. Add/remove courses if needed.
+6. Click **Submit** to have your GPA calculated.
 
 ## How it Works
-The rows with the text boxes and check boxes are part of a HTML form element. The values are used to calculate the GPA using loops and basic arithmetic in JavaScript. 
-The rows can also be added/removed based on the number of courses to calculate the GPA for. This is done through HTML elements and JS DOM manipulation.
-Colors, fonts, and backgrounds are controlled through CSS. 
+1. When the grades and weightages are submitted, they are converted into points based on the grading scale.
+2. Weighted courses (AP/Honors) get +1.0 grade points.
+3. The grade points for all courses are added together.
+4. The total sum is divided by the number of courses to get the GPA (Grade Point Average).
+- Buttons use HTML onclick events and JS event listeners to detect user input.
+- Toggles use booleans to store the current choices.
+
+## Tech Stack
+- HTML5
+- CSS
+- JavaScript
+    - MathJax
+- GitHub Pages (Hosting)
+
+## Motivation
+I built this project because I needed a simple GPA calculator that worked for the system my school uses. Along the way, I learned a lot about HTML, CSS, and JS and learned skills to make cooler projects in the future. 
 
 ###### This project was made for Hack Club Horizons.
